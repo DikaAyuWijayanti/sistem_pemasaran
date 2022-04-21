@@ -12,7 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+Route::get('/','user\WelcomeController@index')->name('home');
+Route::get('/home','user\WelcomeController@index')->name('home2');
+Route::get('/produk','user\ProdukController@index')->name('user.produk');
+Route::get('/produk/cari','user\ProdukController@cari')->name('user.produk.cari');
+Route::get('/kategori/{id}','KategoriController@produkByKategori')->name('user.kategori');
+Route::get('/produk/{id}','user\ProdukController@detail')->name('user.produk.detail');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/pelanggan',function(){
+    return 'Pelanggan';
 });

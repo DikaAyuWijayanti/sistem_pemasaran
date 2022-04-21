@@ -5,7 +5,7 @@
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-home"></i>
-                </span> Pesanan </h3>
+                </span> Pelanggan </h3>
               <nav aria-label="breadcrumb">
               </nav>
             </div>
@@ -15,7 +15,7 @@
                   <div class="card-body">
                     <div class="row mb-3">
                       <div class="col">
-                      <h4 class="card-title">Data Pesanan Perlu Di Cek</h4>
+                      <h4 class="card-title">Data Pelanggan</h4>
                       </div>
                     </div>
                     <div class="table-responsive">
@@ -23,30 +23,18 @@
                         <thead>
                           <tr>
                             <th width="5%">No</th>
-                            <th>No Invoice</th>
-                            <th>Pemesan</th>
-                            <th>Subtotal</th>
-                            <th>Metode Pembayaran</th>
-                            <th>Status Pesanan</th>
-                            <th width="15%">Aksi</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Email</th>
+                            <th>Alamat</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach($orderbaru as $order)
+                          @foreach($pelanggan as $pel)
                             <tr>
                                 <td align="center"></td>
-                                <td>{{ $order->invoice }}</td>
-                                <td>{{ $order->nama_pemesan }}</td>
-                                <td>{{ $order->subtotal + $order->biaya_cod }}</td>
-                                <td>{{ $order->metode_pembayaran }}</td>
-                                <td>{{ $order->name }}</td>
-                                <td align="center">
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                  <a href="{{ route('admin.transaksi.detail',['id'=>$order->id]) }}" class="btn btn-warning btn-sm">
-                                    Cek Pembayaran
-                                  </a>
-                                </div>
-                                </td>
+                                <td>{{ $pel->name }}</td>
+                                <td>{{ $pel->email }}</td>
+                                <td>{{ $pel->detail }}, {{ $pel->kota }}, {{ $pel->prov }}</td>
                             </tr>
                           @endforeach
                         </tbody>
